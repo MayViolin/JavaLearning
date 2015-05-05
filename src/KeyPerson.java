@@ -6,27 +6,13 @@
 public class KeyPerson extends Thread {
 
     public void run() {
-        System.out.println(getName() + "is a key person!");
+        System.out.println(Thread.currentThread().getName() + " begin to fight!");
 
-        int count = 0;
-
-        boolean keepRunning = true;
-
-        while (keepRunning) {
-            System.out.println(getName() + " is on the stage.." + (++count));
-            if (count % 10 == 0) {
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (count == 100) {
-                keepRunning = false;
-            }
+        for (int i = 0; i < 10; i++) {
+            System.out.println(Thread.currentThread().getName() + " is fighting now!");
         }
 
-        System.out.println(getName() + "is leaving the stage!");
+        System.out.println(Thread.currentThread().getName() + " stop fighting!");
     }
 
     public static void main(String[] args) {
